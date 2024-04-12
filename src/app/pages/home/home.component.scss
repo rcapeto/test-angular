@@ -1,7 +1,6 @@
 .home-container {
    .search-container {
       max-width: 375px;
-      margin-top: 24px;
    
       .input-button {
          background-color: transparent;
@@ -14,10 +13,6 @@
             color: var(--zinc-400);
          }
       }
-   }
-
-   .result-content {
-      margin-top: 40px;
    }
 }
 
