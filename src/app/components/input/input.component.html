@@ -1,0 +1,15 @@
+<div [class]="['input-container', big ? 'big' : '']">
+   <ng-content select="[left-icon]"/>
+
+   <input 
+      class="input" 
+      type="text" 
+      [formControl]="inputValue"
+      [placeholder]="placeholder"
+      (input)="handleChangeInputText()"
+      (keyup.enter)="handlePressEnterKey()"
+      [readOnly]="disabled"
+   />
+
+   <ng-content select="[right-icon]"/>
+</div>

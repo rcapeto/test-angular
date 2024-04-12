@@ -1,0 +1,19 @@
+.input-container {
+   padding: 8px 16px;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   border: 1px solid var(--zinc-500);
+   border-radius: var(--border-radius);
+   color: var(--zinc-300);
+
+   .input {
+      background-color: transparent;
+      flex: 1;
+      outline: none;
+      color: var(--zinc-300);
+      font-size: var(--paragraph-size);
+      border: 0;
+      font-family: var(--font);
+   }
+}
