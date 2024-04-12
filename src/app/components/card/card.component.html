@@ -1,0 +1,38 @@
+<a href="" routerLink="users/{{data?.login}}" class="card-container">
+   <header class="card-header">
+      <div class="card-header-left-content">
+         <img 
+            *ngIf="data?.avatar_url" 
+            [src]="data?.avatar_url" 
+            [alt]="data?.name"
+         >
+         <div 
+            *ngIf="!data?.avatar_url" 
+            class="fake-user-image"
+            [title]="data?.name"
+         >
+            <mat-icon>person</mat-icon>
+         </div>
+      </div>
+
+      <div class="card-header-right-content">
+         <h2 class="paragraph">{{data?.name}}</h2>
+         <span>{{'@' + data?.login}}</span>
+         <div class="location">
+            <span>{{data?.location}}</span>
+            <div class="small-icon">
+               <mat-icon>location_on</mat-icon>
+            </div>
+         </div>
+      </div>
+   </header>
+
+   <main class="card-content">
+      <div class="infos">
+         <div class="info" *ngFor="let info of getInfos()">
+            <p>{{ info.label }}</p>
+            <span>{{ info.value }}</span>
+         </div>
+      </div>
+   </main>
+</a>

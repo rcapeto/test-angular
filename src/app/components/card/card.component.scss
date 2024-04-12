@@ -1,0 +1,67 @@
+.git-user-information {
+   background-color: var(--zinc-900);
+   border-radius: var(--border-radius);
+   display: flex;
+   flex-direction: column;
+   gap: var(--spacing-between-items);
+   font-family: var(--font);
+   padding: 8px 16px;
+   transition: background-color var(--transition);
+   text-decoration: none;
+   border: 1px solid var(--zinc-800);
+
+   .small-icon {
+      transform: scale(.7);
+   }
+
+   &:hover {
+      background-color: var(--zinc-800);
+   }
+
+   header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-between-items);
+
+      .right-side {
+        
+      }
+   }
+}
+
+.card-header-left-content {
+   img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 40px;
+   }
+
+   .fake-user-image {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 40px;
+      display: flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--zinc-800);
+      color: var(--zinc-700);
+      font-size: var(--title-size);
+   }
+}
+
+.card-header-right-content {
+   color: var(--zinc-600);
+
+   h2 {
+      margin: 0;
+   }
+
+   .location {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+   }
+} 
