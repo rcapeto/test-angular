@@ -1,0 +1,32 @@
+<div class="home-container">
+   <p class="paragraph">
+      Para buscar informações sobre um usuário no Git, por favor pesquise abaixo:
+   </p>
+
+   <div class="search-container">
+      <app-input 
+         [defaultValue]="inputText" 
+         placeholder="Procure seu usuário favorito..." 
+         (onChangeInputValue)="onChangeInputValue($event)"
+         (onPressEnterKey)="onFetchUser($event)"
+         [disabled]="loading"
+      >
+         <button right-icon class="input-button" (click)="onPressSearchUsername()">
+            <mat-icon>search</mat-icon>
+         </button>
+      </app-input>
+   </div>
+
+   <div class="result-content">
+      <div *ngIf="error">
+         <app-error [message]="errorMessage" />
+      </div>
+      <div *ngIf="loading">
+         <p>Carregando</p>
+      </div>
+   
+      <div *ngIf="searchUser !== null">
+         <app-gituser [data]="searchUser"/>
+      </div>
+   </div>
+</div>
