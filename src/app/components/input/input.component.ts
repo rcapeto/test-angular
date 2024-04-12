@@ -12,7 +12,6 @@ export class InputComponent implements OnInit {
   @Input() placeholder?: string 
   @Input() disabled?: boolean = false
   @Input() defaultValue?: string 
-  @Input() big?: boolean = false 
   @Output() onChangeInputValue = new EventEmitter()
   @Output() onPressEnterKey = new EventEmitter()
 

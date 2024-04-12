@@ -1,8 +1,8 @@
-<div [class]="['input-container', big ? 'big' : '']">
+<div class="input-container flex items-center spacing-s rounded">
    <ng-content select="[left-icon]"/>
 
    <input 
-      class="input" 
+      class="input flex-1" 
       type="text" 
       [formControl]="inputValue"
       [placeholder]="placeholder"
