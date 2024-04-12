@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { 
   FetchAllReposByUsernameParams,
   GithubRepos,
   GithubUser,
+  ErrorCallback
 } from './types'
 
 @Injectable({
@@ -37,6 +38,21 @@ export class ApiService {
     return this.http.get<GithubRepos[]>(uri.toString())
 
   }
+
+  errorBoundary(callback: ErrorCallback) {
+    return(error: HttpErrorResponse) => {
+      let errorMessage = 'Falha na requisição'
+
+      if(error instanceof HttpErrorResponse) {
+        errorMessage = error?.error?.message ?? 'Falha na requisição'
+      }
+
+      callback?.(errorMessage)
+
+      throw error
+    }
+  }
+
 
   private uriParser(pathname: string) {
     const uri = new URL(`${this.baseApi}/${pathname}`)

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'
 
 import { InputComponent } from '~/app/components/input/input.component';
@@ -16,7 +16,6 @@ import { CardLoadingComponent } from '~/app/components/card-loading/card-loading
   selector: 'app-home',
   standalone: true,
   imports: [
-    HttpClientModule,
     InputComponent, 
     MatIconModule, 
     CommonModule, 
@@ -65,17 +64,10 @@ export class HomeComponent {
 
     this.gitService.fetchByUsername(searchText)
       .pipe(
-        catchError((error) => {
-          this.errorMessage = 'Falha na requisição'
-
-          if(error instanceof HttpErrorResponse) {
-            this.errorMessage = error?.error?.message ?? 'Falha na requisição'
-          }
-
+        catchError(this.gitService.errorBoundary((errorMessage => {
           this.error = true 
-
-          throw error
-        }),
+          this.errorMessage = errorMessage
+        }))),
         finalize(() => {
           this.loading = false
         })

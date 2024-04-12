@@ -22,8 +22,8 @@ export class CardComponent {
     return [
       { label: 'Seguidores', value: this.data.followers },
       { label: 'Seguindo', value: this.data.following },
-      { label: 'Repositórios Públicos', value: this.data.public_repos ?? 0 },
-      { label: 'Gists Públicos', value: this.data.public_gists ?? 0 },
+      { label: 'Repos', value: this.data.public_repos ?? 0 },
+      { label: 'Gists', value: this.data.public_gists ?? 0 },
     ]
   }
 }

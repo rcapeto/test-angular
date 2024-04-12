@@ -1,3 +1,5 @@
+export type ErrorCallback = (errorMessage: string) => void
+
 export type FetchAllReposByUsernameParams = {
    perPage?: number,
    username: string,
