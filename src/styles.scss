@@ -89,6 +89,42 @@
    color: var(--error);
 }
 
+.flex {
+   display: flex;
+}
+
+.items-center {
+   align-items: center;
+}
+
+.justify-between {
+   justify-content: space-between;
+}
+
+.flex-col {
+   flex-direction: column;
+}
+
+.spacing-xs {
+   gap: 2px;
+}
+
+.spacing-s {
+   gap: 4px;
+}
+
+.spacing-md {
+   gap: 8px;
+}
+
+.spacing-lg {
+   gap: var(--spacing-between-items);
+}
+
+.w-full {
+   width: 100%;
+}
+
 @keyframes skeleton-loading {
    0% {
       background-color: var(--zinc-300);
