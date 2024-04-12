@@ -9,7 +9,8 @@ import { GithubUser } from '~/app/services/types'
 import { catchError, finalize } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ErrorComponent } from '~/app/components/error/error.component';
-import { GitUserComponent } from '~/app/components/gituser/gituser.component';
+import { CardComponent } from '~/app/components/card/card.component';
+import { CardLoadingComponent } from '~/app/components/card-loading/card-loading.component';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ import { GitUserComponent } from '~/app/components/gituser/gituser.component';
     MatIconModule, 
     CommonModule, 
     ErrorComponent,
-    GitUserComponent,
+    CardComponent,
+    CardLoadingComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

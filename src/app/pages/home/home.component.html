@@ -22,11 +22,11 @@
          <app-error [message]="errorMessage" />
       </div>
       <div *ngIf="loading">
-         <p>Carregando</p>
+         <app-card-loading />
       </div>
    
       <div *ngIf="searchUser !== null">
-         <app-gituser [data]="searchUser"/>
+         <app-card [data]="searchUser"/>
       </div>
    </div>
 </div>
