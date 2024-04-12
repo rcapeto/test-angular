@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { SkeletonDirective } from '~/app/directives/skeleton/skeleton.directive';
 
 @Component({
   selector: 'app-card-loading',
   standalone: true,
-  imports: [],
+  imports: [SkeletonDirective],
   templateUrl: './card-loading.component.html',
-  styleUrl: './card-loading.component.scss'
+  styleUrls: ['./card-loading.component.scss', '../../common/card.common.scss'],
 })
 export class CardLoadingComponent {
 
