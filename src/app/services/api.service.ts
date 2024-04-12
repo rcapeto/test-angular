@@ -21,7 +21,7 @@ export class ApiService {
     return this.http.get<GithubUser>(uri.toString())
   }
 
-  fetchReposByUsername({ username, direction, page = 1, perPage, sort }: FetchAllReposByUsernameParams) {
+  fetchReposByUsername({ username, direction, page = 1, perPage = 10, sort }: FetchAllReposByUsernameParams) {
     const uri = this.uriParser(`users/${username}/repos`)
 
     uri.searchParams.set('per_page', String(perPage))
