@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'
 
 import { InputComponent } from '~/app/components/input/input.component';
 import { ApiService } from '~/app/services/api.service';
-import { GithubUser } from '~/app/services/types'
+import { GithubUser } from '~/app/services/api.service.types'
 import { catchError, finalize } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ErrorComponent } from '~/app/components/error/error.component';

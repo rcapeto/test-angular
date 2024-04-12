@@ -5,7 +5,7 @@ import {
   GithubRepos,
   GithubUser,
   ErrorCallback
-} from './types'
+} from './api.service.types'
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { GithubUser } from '~/app/services/types';
+import { GithubUser } from '~/app/services/api.service.types';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 

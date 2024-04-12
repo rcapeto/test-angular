@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '~/app/services/api.service';
+import { GithubRepos, GithubUser } from '~/app/services/api.service.types';
 
 @Component({
   selector: 'app-user',
@@ -9,4 +11,6 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
 
+
+  constructor(private gitService: ApiService) {}
 }
