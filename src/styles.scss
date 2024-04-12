@@ -105,6 +105,15 @@
    flex-direction: column;
 }
 
+.flex-center {
+   align-items: center;
+   justify-content: center;
+}
+
+.flex-1 {
+   flex: 1;
+}
+
 .spacing-xs {
    gap: 2px;
 }
@@ -123,6 +132,26 @@
 
 .w-full {
    width: 100%;
+}
+
+.px-container {
+   padding: 0px var(--padding-container);
+}
+
+.py-container {
+   padding: var(--padding-container) 0px;
+}
+
+.p-container {
+   padding: var(--padding-container);
+}
+
+.center {
+   margin: 0 auto;
+}
+
+.rounded {
+   border-radius: var(--border-radius);
 }
 
 @keyframes skeleton-loading {
