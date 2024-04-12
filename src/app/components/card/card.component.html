@@ -1,4 +1,4 @@
-<a href="" routerLink="users/{{data?.login}}" class="card-container">
+<a href="" routerLink="users/{{data?.login}}" class="card-container border">
    <header class="card-header">
       <div class="card-header-left-content">
          <img 
@@ -29,7 +29,7 @@
 
    <main class="card-content">
       <div class="infos">
-         <div class="info" *ngFor="let info of getInfos()">
+         <div class="info border" *ngFor="let info of getInfos()">
             <p>{{ info.label }}</p>
             <span>{{ info.value }}</span>
          </div>

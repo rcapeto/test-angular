@@ -8,7 +8,7 @@
    padding: 8px 16px;
    transition: background-color var(--transition);
    text-decoration: none;
-   border: 1px solid var(--zinc-800); 
+   border-color: var(--zinc-800); 
 }
 
 .card-header {
@@ -55,7 +55,7 @@
       }
 
       .info {
-         border: 1px solid var(--zinc-700);
+         border-color: var(--zinc-700);
          border-radius: var(--border-radius);
          display: flex;
          flex-direction: column;
