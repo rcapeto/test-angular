@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
+import { CommonModule } from '@angular/common';
 
 import { InputComponent } from '~/app/components/input/input.component';
-import { ApiService } from '~/app/services/api.service';
-import { GithubUser } from '~/app/services/api.service.types'
-import { catchError, finalize } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { ApiService } from '~/app/services/api/api.service';
+import { GithubUser } from '~/app/services/api/api.service.types'
 import { ErrorComponent } from '~/app/components/error/error.component';
 import { CardComponent } from '~/app/components/card/card.component';
 import { CardLoadingComponent } from '~/app/components/card-loading/card-loading.component';
+import { UserService } from '~/app/services/user/user.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    InputComponent, 
-    MatIconModule, 
-    CommonModule, 
+    InputComponent,
+    MatIconModule,
+    CommonModule,
     ErrorComponent,
     CardComponent,
     CardLoadingComponent,
@@ -25,23 +25,36 @@ import { CardLoadingComponent } from '~/app/components/card-loading/card-loading
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  private readonly searchParamsTerm = 'search'
+
   searchUser: GithubUser | null = null
   loading = false
   error = false
   inputText = ''
   errorMessage = ''
 
-  constructor(private gitService: ApiService, private activeRoute: ActivatedRoute) {
-    const searchParam = 'search'
+  constructor(
+    private userService: UserService, 
+    private activeRoute: ActivatedRoute, 
+    private router: Router
+  ) {
 
     activeRoute.queryParams.subscribe(params => {
-      if (searchParam in params) {
-        const searchParamValue = params[searchParam]
+      if (this.searchParamsTerm in params) {
+        const searchParamValue = params[this.searchParamsTerm]
 
         this.inputText = searchParamValue
         this.onFetchUser(searchParamValue)
       }
+    })
+  }
+  ngOnInit(): void {
+    this.userService.getState().subscribe(state => {
+      this.searchUser = state.data
+      this.loading = state.loading
+      this.error = state.error
+      this.errorMessage = state.errorMessage
     })
   }
 
@@ -56,24 +69,13 @@ export class HomeComponent {
   }
 
   onFetchUser(searchText: string) {
-    this.loading = true
-    this.error = false
-    this.searchUser = null
-    this.errorMessage = ''
-
-    this.gitService.fetchByUsername(searchText)
-      .pipe(
-        catchError(this.gitService.errorBoundary((errorMessage => {
-          this.error = true 
-          this.errorMessage = errorMessage
-        }))),
-        finalize(() => {
-          this.loading = false
-        })
-      )
-      .subscribe(data => {
-        this.loading = true
-        this.searchUser = data
-      })
+    this.router.navigate([], {
+      relativeTo: this.activeRoute,
+      queryParamsHandling: 'merge',
+      queryParams: {
+        [this.searchParamsTerm]: searchText,
+      }
+    })
+    this.userService.getByUsername(searchText)
   }
 }
