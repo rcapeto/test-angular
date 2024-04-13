@@ -6,12 +6,13 @@ import {
   GithubUser,
   ErrorCallback
 } from './api.service.types'
+import { environment } from '~/app/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  baseApi = 'https://api.github.com'
+  private baseApi = environment.apiUrl
 
   constructor(private http: HttpClient) { }
 
@@ -42,6 +43,7 @@ export class ApiService {
   errorBoundary(callback: ErrorCallback) {
     return(error: HttpErrorResponse) => {
       let errorMessage = 'Falha na requisição'
+      console.error('API Error', error)
 
       if(error instanceof HttpErrorResponse) {
         errorMessage = error?.error?.message ?? 'Falha na requisição'
