@@ -1,15 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { GithubUser } from '~/app/services/api.service.types';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { GithubUser } from '~/app/services/api/api.service.types';
 
 @Component({
   selector: 'app-card',
   standalone: true,
   imports: [RouterLink, MatIconModule, CommonModule],
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss', '../../common/card.common.scss']
+  styleUrls: ['./card.component.scss', '../../styles/card.scss']
 })
 export class CardComponent {
   @Input() data: GithubUser| null = null
