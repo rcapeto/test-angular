@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { GithubUser } from '~/app/services/api/api.service.types';
 import { AvatarComponent } from '~/app/components/avatar/avatar.component';
@@ -7,7 +8,7 @@ import { AvatarComponent } from '~/app/components/avatar/avatar.component';
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [RouterLink, CommonModule, AvatarComponent],
+  imports: [RouterLink, MatIconModule, CommonModule, AvatarComponent],
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss', '../../styles/card.scss']
 })
