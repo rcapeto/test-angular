@@ -1,0 +1,13 @@
+<div 
+  class="avatar flex flex-center" 
+  [ngClass]="big ? 'bigger' : ''"
+  [title]="alt" 
+>
+  <img 
+    *ngIf="src"
+    [src]="src"
+    [alt]="alt"
+  />
+  
+  <mat-icon *ngIf="!src">person</mat-icon>
+</div>
