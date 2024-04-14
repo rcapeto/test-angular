@@ -23,12 +23,28 @@
    display: flex;
 }
 
+.grid {
+   display: grid;
+}
+
 .items-center {
    align-items: center;
 }
 
+.items-start {
+   align-items: flex-start;
+}
+
 .justify-between {
    justify-content: space-between;
+}
+
+.justify-center {
+   justify-content: center;
+}
+
+.text-center {
+   text-align: center;
 }
 
 .flex-col {
@@ -76,6 +92,11 @@
    padding: var(--padding-container);
 }
 
+
+.pt-container {
+   padding-top: var(--padding-container);
+}
+
 .center {
    margin: 0 auto;
 }
@@ -86,4 +107,83 @@
 
 .border {
    border: 1px solid var(--zinc-950);
+}
+
+.small-icon {
+   .mat-icon {
+      font-size: var(--paragraph-xs-size);
+      height: unset;
+      width: unset;
+   }
+}
+
+.link {
+   text-decoration: none;
+}
+
+.link {
+   color: var(--zinc-600);
+
+   &:hover {
+      color: var(--zinc-700);
+   }
+}
+
+.m-0 {
+  margin: 0px !important; 
+}
+
+.lowercase {
+   text-transform: lowercase;
+}
+
+.font {
+   font-family: var(--font);
+}
+
+// ESTILIZAÇÃO DE CORES
+.text-zinc-50 { color: var(--zinc-50) ;}
+.text-zinc-100 { color: var(--zinc-100) ;}
+.text-zinc-200 { color: var(--zinc-200) ;}
+.text-zinc-300 { color: var(--zinc-300) ;}
+.text-zinc-400 { color: var(--zinc-400) ;}
+.text-zinc-500 { color: var(--zinc-500) ;}
+.text-zinc-600 { color: var(--zinc-600) ;}
+.text-zinc-700 { color: var(--zinc-700) ;}
+.text-zinc-800 { color: var(--zinc-800) ;}
+.text-zinc-900 { color: var(--zinc-900) ;}
+.text-zinc-950 { color: var(--zinc-950) ;}
+.text-zinc-950 { color: var(--zinc-950) ;}
+.text-purple { color: var(--purple) ;}
+.text-purple-dark { color: var(--purple-dark) ;}
+.text-error-300 { color: var(--error-300) ;}
+.text-error-400 { color: var(--error-400) ;}
+.text-error-600 { color: var(--error) ;}
+.text-success { color: var(--success) ;}
+
+// BACKGROUND
+.bg-zinc-50 { background-color: var(--zinc-50) ;}
+.bg-zinc-100 { background-color: var(--zinc-100) ;}
+.bg-zinc-200 { background-color: var(--zinc-200) ;}
+.bg-zinc-300 { background-color: var(--zinc-300) ;}
+.bg-zinc-400 { background-color: var(--zinc-400) ;}
+.bg-zinc-500 { background-color: var(--zinc-500) ;}
+.bg-zinc-600 { background-color: var(--zinc-600) ;}
+.bg-zinc-700 { background-color: var(--zinc-700) ;}
+.bg-zinc-800 { background-color: var(--zinc-800) ;}
+.bg-zinc-900 { background-color: var(--zinc-900) ;}
+.bg-zinc-950 { background-color: var(--zinc-950) ;}
+
+//SIZE
+.text-small { 
+   font-size: var(--paragraph-size); 
+}
+.text-xs-small { 
+   font-size: var(--paragraph-xs-size); 
+}
+
+// WEIGHT
+
+.bold {
+   font-weight: bold;
 }
