@@ -1,0 +1,29 @@
+.user-content {
+   @media (max-width: 475px) {
+      padding: 0px;
+   }
+
+   .user-info { 
+      .header {
+         @media (max-width: 475px) {
+            flex-direction: column;
+            align-items: flex-start;
+         }
+      }
+      section {
+         .infos {
+            list-style: none;
+            grid-template-columns: repeat(4, 1fr);
+   
+            @media (max-width: 475px) {
+               grid-template-columns: repeat(2, 1fr);
+            }
+   
+            .info-item {
+               border-color: var(--zinc-600);
+               padding: 6px;
+            }
+         }
+      }
+   }
+}

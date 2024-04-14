@@ -1,7 +1,76 @@
 <div class="p-container">
-   <h1 class="title">Detalhes do usuário</h1>
+  <h1 class="title">Detalhes do usuário</h1>
 
-   <div class="content p-container flex flex-col spacing-lg">
-      
-   </div>
+  <div *ngIf="error">
+    <app-error [message]="errorMessage" />
+  </div>
+
+  <main class="user-content content p-container flex flex-col spacing-lg">
+    <div class="user-info" *ngIf="user">
+      <header class="header flex items-center spacing-lg">
+        <div class="left-content">
+          <app-avatar [src]="user.avatar_url" [alt]="user.name" [big]="true" />
+        </div>
+
+        <div class="right-content flex-1">
+          <h2 class="title m-0">
+            {{ user.name }},
+            <a
+              [href]="user.html_url"
+              target="_blank"
+              rel="noopener nofollow"
+              class="link"
+            >
+              <span class="text-small">
+                {{ "@" + user.login }}
+              </span>
+            </a>
+          </h2>
+          <div class="flex items-center spacing-s">
+            <div
+              class="header-info flex items-center spacing-s small-icon text-zinc-600"
+            >
+              <mat-icon>laptop</mat-icon>
+              <span>{{ user.company }}</span>
+            </div>
+
+            <div
+              class="header-info flex items-center spacing-s small-icon text-zinc-600"
+            >
+              <mat-icon>place</mat-icon>
+              <span>{{ user.location }}</span>
+            </div>
+          </div>
+
+          <a
+            [href]="user.blog"
+            target="_blank"
+            rel="noopener nofollow"
+            class="link"
+            *ngIf="user.blog"
+          >
+            {{ user.blog }}
+          </a>
+        </div>
+      </header>
+
+      <section class="py-container flex flex-col spacing-lg">
+        <div class="pt-container">
+          <p class="paragraph m-0">
+            {{ user.bio }}
+          </p>
+        </div>
+
+        <ul class="infos grid spacing-lg">
+          <li
+            *ngFor="let info of getUserInfo()"
+            class="info-item paragraph flex flex-col items-center spacing-xs border rounded font"
+          >
+            <span class="bold">{{ info.value }}</span>
+            <p class="text-zinc-600 lowercase text-xs-small m-0">{{ info.label }}</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
 </div>
