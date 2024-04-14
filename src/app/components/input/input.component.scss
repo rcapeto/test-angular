@@ -1,14 +1,10 @@
 .input-container {
    padding: 8px 16px;
    border-color: var(--zinc-500);
-   color: var(--zinc-300);
 
    .input {
       background-color: transparent;
       outline: none;
-      color: var(--zinc-300);
-      font-size: var(--paragraph-size);
       border: 0;
-      font-family: var(--font);
    }
 }

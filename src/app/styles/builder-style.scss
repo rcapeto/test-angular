@@ -173,12 +173,16 @@
 .bg-zinc-800 { background-color: var(--zinc-800) ;}
 .bg-zinc-900 { background-color: var(--zinc-900) ;}
 .bg-zinc-950 { background-color: var(--zinc-950) ;}
+.bg-error-300 { background-color: var(--error-300) ;}
+.bg-error-400 { background-color: var(--error-400) ;}
+.bg-error-600 { background-color: var(--error) ;}
+.bg-success { background-color: var(--success) ;}
 
 //SIZE
 .text-small { 
    font-size: var(--paragraph-size); 
 }
-.text-xs-small { 
+.text-xs { 
    font-size: var(--paragraph-xs-size); 
 }
 

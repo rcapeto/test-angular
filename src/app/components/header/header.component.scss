@@ -1,19 +1,17 @@
 .header {
-   border-bottom: 1px solid var(--zinc-800);
-   padding-bottom: 24px;
-   height: 70px;
+   border-bottom: 1px solid var(--zinc-700);
 
-   .logo {
-      font-family: var(--font);
-      font-weight: 800;
-      font-size: var(--logo-size);
-      color: var(--zinc-300);
-      letter-spacing: 2px;
-      text-decoration: none;
-
-      span {
-         color: var(--purple);
-         margin-left: 2px;
+   .header-content {
+      height: 70px;
+   
+      .logo {
+         font-weight: 800;
+         font-size: var(--logo-size);
+         letter-spacing: 2px;
+   
+         span {
+            margin-left: 2px;
+         }
       }
    }
 }
