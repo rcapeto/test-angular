@@ -1,18 +1,10 @@
 <a href="" routerLink="users/{{data?.login}}" class="card-container border">
    <header class="card-header">
       <div class="card-header-left-content">
-         <img 
-            *ngIf="data?.avatar_url" 
+         <app-avatar 
             [src]="data?.avatar_url" 
             [alt]="data?.name"
-         >
-         <div 
-            *ngIf="!data?.avatar_url" 
-            class="fake-user-image"
-            [title]="data?.name"
-         >
-            <mat-icon>person</mat-icon>
-         </div>
+         />
       </div>
 
       <div class="card-header-right-content">

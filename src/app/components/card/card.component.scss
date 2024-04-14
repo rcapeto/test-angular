@@ -5,20 +5,6 @@
       object-fit: cover;
       border-radius: 40px;
    }
-
-   .fake-user-image {
-      width: 65px;
-      height: 65px;
-      object-fit: cover;
-      border-radius: 40px;
-      display: flex;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--zinc-800);
-      color: var(--zinc-700);
-      font-size: var(--title-size);
-   }
 }
 
 .card-header-right-content {
