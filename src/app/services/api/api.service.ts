@@ -13,7 +13,6 @@ import { environment } from '~/app/environments/environment';
 })
 export class ApiService {
   private baseApi = environment.apiUrl
-
   constructor(private http: HttpClient) { }
 
   fetchByUsername(username: string) {
@@ -22,22 +21,12 @@ export class ApiService {
     return this.http.get<GithubUser>(uri.toString())
   }
 
-  fetchReposByUsername({ username, direction, page = 1, perPage = 10, sort }: FetchAllReposByUsernameParams) {
+  fetchReposByUsername({ username, perPage = 100 }: FetchAllReposByUsernameParams) {
     const uri = this.uriParser(`users/${username}/repos`)
 
     uri.searchParams.set('per_page', String(perPage))
-    uri.searchParams.set('page', String(page))
-
-    if (sort) {
-      uri.searchParams.set('sort', sort)
-    }
-
-    if (direction) {
-      uri.searchParams.set('direction', direction)
-    }
 
     return this.http.get<GithubRepos[]>(uri.toString())
-
   }
 
   errorBoundary(callback: ErrorCallback) {
