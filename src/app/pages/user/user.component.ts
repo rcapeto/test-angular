@@ -115,7 +115,6 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userService.getState().subscribe(state => {
-      console.log("@@ state user", state)
       this.error = state.error
       this.errorMessage = state.errorMessage
       this.loading = this.loading
@@ -123,7 +122,6 @@ export class UserComponent implements OnInit, OnDestroy {
     })
 
     this.repoService.getState().subscribe(state => {
-      console.log("@@ state repos", state)
       this.loadingRepos = state.loading
       this.repos = state.data
       this.filteredRepos = this.onFilterRepos()
