@@ -1,0 +1,38 @@
+<div class="repo-item border rounded">
+   <div class="repo-info-container p-container">
+      <header>
+        <a
+          [href]="repo.html_url"
+          rel="noopener nofollow"
+          target="_blank"
+          class="link text-purple-dark bold text-lg"
+          >{{ repo.full_name }}
+        </a
+        >
+        <p class="text-zinc-500 m-0">{{ repo.description }}</p>
+      </header>
+   
+      <main class="topics flex items-center spacing-lg flex-wrap" *ngIf="repo.topics.length">
+        <div *ngFor="let topic of repo.topics" class="topic text-zinc-50 bg-purple-dark text-zinc-200 rounded text-xs">
+          {{ topic }}
+        </div>
+      </main>
+   
+      <footer class="footer flex items-center spacing-md pt-container">
+        <p class="text-zinc-300 text-xs m-0">
+         {{ repo.language }}
+        </p>
+   
+        <div class="small-icon flex items-center">
+          <p class="text-zinc-500 text-xs m-0">
+             {{ repo.stargazers_count }}
+          </p>
+          <mat-icon class="text-zinc-500">star</mat-icon>
+        </div>
+   
+        <p class="text-zinc-500 text-xs m-0">
+          Atualizado {{ repo.updated_at | relativeDate }}
+        </p>
+      </footer>
+    </div>
+</div>
