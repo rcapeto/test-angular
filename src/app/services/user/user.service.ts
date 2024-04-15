@@ -19,6 +19,10 @@ export class UserService {
 
   constructor(private apiService: ApiService) {}
 
+  onReset() {
+    this.state.next(this.emptyState)
+  }
+
   getByUsername(username: string){
     this.state.next({...this.emptyState, loading: true })
 
