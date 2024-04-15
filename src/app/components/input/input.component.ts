@@ -9,9 +9,9 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './input.component.scss'
 })
 export class InputComponent implements OnInit {
-  @Input() placeholder?: string 
+  @Input() placeholder?: string = ''
   @Input() disabled?: boolean = false
-  @Input() defaultValue?: string 
+  @Input() defaultValue?: string | null
   @Output() onChangeInputValue = new EventEmitter()
   @Output() onPressEnterKey = new EventEmitter()
 
