@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router'
 import { CommonModule } from '@angular/common';
@@ -25,7 +25,7 @@ import { UserService } from '~/app/services/user/user.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   private readonly searchParamsTerm = 'search'
 
   searchUser: GithubUser | null = null
@@ -49,6 +49,10 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+  ngOnDestroy() {
+    this.userService.onReset()
+  }
+
   ngOnInit(): void {
     this.userService.getState().subscribe(state => {
       this.searchUser = state.data
