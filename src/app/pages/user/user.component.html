@@ -1,11 +1,11 @@
 <div class="p-container">
-  <h1 class="title">Detalhes do usuário</h1>
-
   <div *ngIf="error">
     <app-error [message]="errorMessage" />
   </div>
 
   <main class="user-content content p-container flex flex-col spacing-lg">
+    <h2 class="title">Detalhes do usuário</h2>
+
     <div class="user-info" *ngIf="user">
       <header class="header flex items-center spacing-lg">
         <div class="left-content">
@@ -51,6 +51,17 @@
           >
             {{ user.blog }}
           </a>
+
+          <div
+            class="text-zinc-600 flex items-center spacing-xs pt-container text-xs"
+          >
+            <p class="m-0 text-zinc-500">Membro desde:</p>
+            <span>{{ user.created_at | date : "dd/MM/yyy" }}</span>
+          </div>
+          <div class="text-zinc-600 flex items-center spacing-xs text-xs">
+            <p class="m-0 text-zinc-500">Ultima atualização:</p>
+            <span>{{ user.updated_at | relativeDate }}</span>
+          </div>
         </div>
       </header>
 
@@ -71,6 +82,53 @@
           </li>
         </ul>
       </section>
+    </div>
+
+    <h2 class="title">Repositórios</h2>
+
+    <app-error
+      *ngIf="errorRepos"
+      message="Erro ao obter repositórios do usuário"
+    />
+
+    <div class="search-container flex flex-col spacing-md" *ngIf="repos.length > 0 && !error">
+      <app-input 
+        class="flex-1"
+        placeholder="Pesquise seu repositório..."
+        (onChangeInputValue)="onChangeInputValue($event)"
+        [defaultValue]="formGroup.value.search"
+      />
+
+      <div class="selects flex-1 flex items-center spacing-md">
+          <app-select 
+            class="flex-1"
+            label="Ordenar por"
+            [options]="orderTypeSelectOptions"
+            [defaultSelect]="formGroup.value.orderType"
+            (onSelectItem)="onSelectFilterType($event)"
+          />
+          <app-select 
+            class="flex-1"
+            label="Ordenar de forma"
+            [options]="orderBySelectOptions"
+            [defaultSelect]="formGroup.value.orderBy"
+            (onSelectItem)="onSelectFilterBy($event)"
+          />
+      </div>
+
+      <app-button (onClick)="onSearch()">
+        Procurar
+      </app-button>
+    </div>
+
+    <div
+      class="repos-info flex flex-col spacing-lg"
+      *ngIf="repos.length > 0 && !error"
+    >
+      <p *ngIf="!filteredRepos.length" class="text-zinc-300">
+        Não foi possível encontrar repositórios...
+      </p>
+      <app-repository [repo]="repo" *ngFor="let repo of filteredRepos" />
     </div>
   </main>
 </div>
