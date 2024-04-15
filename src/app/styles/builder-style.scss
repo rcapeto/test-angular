@@ -60,6 +60,10 @@
    flex: 1;
 }
 
+.flex-wrap {
+   flex-wrap: wrap;
+}
+
 .spacing-xs {
    gap: 2px;
 }
@@ -91,7 +95,6 @@
 .p-container {
    padding: var(--padding-container);
 }
-
 
 .pt-container {
    padding-top: var(--padding-container);
@@ -177,6 +180,8 @@
 .bg-error-400 { background-color: var(--error-400) ;}
 .bg-error-600 { background-color: var(--error) ;}
 .bg-success { background-color: var(--success) ;}
+.bg-purple { background-color: var(--purple) ;}
+.bg-purple-dark { background-color: var(--purple-dark) ;}
 
 //SIZE
 .text-small { 
@@ -186,8 +191,11 @@
    font-size: var(--paragraph-xs-size); 
 }
 
-// WEIGHT
+.text-lg {
+   font-size: var(--paragraph-lg-size);
+}
 
+// WEIGHT
 .bold {
    font-weight: bold;
 }
