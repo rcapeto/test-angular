@@ -1,11 +1,8 @@
 export type ErrorCallback = (errorMessage: string) => void
 
 export type FetchAllReposByUsernameParams = {
-   perPage?: number,
    username: string,
-   page?: number,
-   sort?: 'stars' | 'full_name' | 'owner',
-   direction?: 'asc' | 'desc'
+   perPage?: number,
 }
 
 export type GithubUser = {
@@ -24,12 +21,12 @@ export type GithubUser = {
    html_url: string,
    public_gists: number | null,
    public_repos: number | null,
-
+   updated_at: string | null
 }
 
 export type GithubRepos = {
    id: number,
-   name: string | null,
+   name: string,
    full_name: string,
    private: boolean,
    owner: {
@@ -43,4 +40,6 @@ export type GithubRepos = {
    updated_at: string,
    stargazers_count: number,
    disabled: boolean,
+   topics: string[]
+   language: string
 }
