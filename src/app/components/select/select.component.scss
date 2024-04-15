@@ -1,0 +1,58 @@
+.select-container {
+   border-color: var(--zinc-400); 
+   padding: 8px 16px;
+   position: relative;
+   cursor: pointer;
+
+   .select-content {
+      .small-icon {
+         transition: transform var(--transition);
+      }
+   }
+
+   &.active {
+      .arrow {
+         transform: rotate(90deg);
+      }
+
+      .select-options {
+         visibility: visible;
+         opacity: 1;
+         transform: translateY(5px);
+      }
+   }
+
+   .select-options {
+      border-color: var(--zinc-400); 
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-20px);
+      visibility: hidden;
+      opacity: 0;
+      transition: all var(--transition);
+      max-height: 200px;
+      overflow: scroll;
+      overflow-x: hidden;
+      z-index: 2;
+
+      .select-option {
+         padding: 10px;
+         border-bottom: 1px solid var(--zinc-400);
+         cursor: pointer;
+
+         &.selected {
+            background-color: var(--zinc-900);
+         }
+
+         &:last-child {
+            border: 0;
+         }
+
+         &:hover {
+            background-color: var(--zinc-900);
+         }
+      }
+   }
+}

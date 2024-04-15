@@ -1,0 +1,28 @@
+<div
+  class="select-container border rounded flex items-center"
+  [ngClass]="active ? 'active' : ''"
+>
+  <div class="select-content flex flex-1 items-center justify-between" (click)="toggleActiveSelect()" role="button">
+    <div class="label flex-1">
+      <p class="m-0 text-zinc-300" [title]="select?.label || label">
+        {{ select?.label || label }}
+      </p>
+    </div>
+
+    <mat-icon class="small-icon arrow text-zinc-300">chevron_right</mat-icon>
+  </div>
+
+  <div class="select-options scroll border bg-zinc-950">
+    <div
+      class="select-option"
+      *ngFor="let option of options"
+      role="button"
+      (click)="onSelectOption(option)"
+      [ngClass]="select?.value === option.value ? 'selected' : ''"
+    >
+      <p [title]="option.label" class="m-0 text-zinc-300">
+        {{ option.label }}
+      </p>
+    </div>
+  </div>
+</div>
