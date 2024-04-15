@@ -15,6 +15,16 @@
    border-radius: 20px;
 }
 
+.skeleton-image-bigger {
+   width: 90px;
+   height: 90px;
+   border-radius: 45px;
+}
+
+.skeleton-card {
+   height: 85px;
+}
+
 @keyframes skeleton-loading {
    0% {
       background-color: var(--zinc-300);

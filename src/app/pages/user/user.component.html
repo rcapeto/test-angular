@@ -1,9 +1,16 @@
-<div class="p-container">
+<div class="user-container">
   <div *ngIf="error">
     <app-error [message]="errorMessage" />
   </div>
 
-  <main class="user-content content p-container flex flex-col spacing-lg">
+  <app-user-loading 
+    *ngIf="loading || loadingRepos"
+  />
+
+  <main 
+    class="user-content content p-container flex flex-col spacing-lg"
+    *ngIf="!loading && !loadingRepos"
+  >
     <h2 class="title">Detalhes do usuário</h2>
 
     <div class="user-info" *ngIf="user">
@@ -91,8 +98,11 @@
       message="Erro ao obter repositórios do usuário"
     />
 
-    <div class="search-container flex flex-col spacing-md" *ngIf="repos.length > 0 && !error">
-      <app-input 
+    <div
+      class="search-container flex flex-col spacing-md"
+      *ngIf="repos.length > 0 && !error"
+    >
+      <app-input
         class="flex-1"
         placeholder="Pesquise seu repositório..."
         (onChangeInputValue)="onChangeInputValue($event)"
@@ -100,25 +110,23 @@
       />
 
       <div class="selects flex-1 flex items-center spacing-md">
-          <app-select 
-            class="flex-1"
-            label="Ordenar por"
-            [options]="orderTypeSelectOptions"
-            [defaultSelect]="formGroup.value.orderType"
-            (onSelectItem)="onSelectFilterType($event)"
-          />
-          <app-select 
-            class="flex-1"
-            label="Ordenar de forma"
-            [options]="orderBySelectOptions"
-            [defaultSelect]="formGroup.value.orderBy"
-            (onSelectItem)="onSelectFilterBy($event)"
-          />
+        <app-select
+          class="flex-1"
+          label="Ordenar por"
+          [options]="orderTypeSelectOptions"
+          [defaultSelect]="formGroup.value.orderType"
+          (onSelectItem)="onSelectFilterType($event)"
+        />
+        <app-select
+          class="flex-1"
+          label="Ordenar de forma"
+          [options]="orderBySelectOptions"
+          [defaultSelect]="formGroup.value.orderBy"
+          (onSelectItem)="onSelectFilterBy($event)"
+        />
       </div>
 
-      <app-button (onClick)="onSearch()">
-        Procurar
-      </app-button>
+      <app-button (onClick)="onSearch()"> Procurar </app-button>
     </div>
 
     <div

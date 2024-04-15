@@ -16,6 +16,7 @@ import { InputComponent } from '~/app/components/input/input.component';
 import { SelectOption } from '~/app/components/select/select.component.types';
 import { OrderBy, OrderType, UpdateURLParams } from './user.component.types'
 import { ButtonComponent } from '~/app/components/button/button.component';
+import { UserLoadingComponent } from '~/app/components/user-loading/user-loading.component';
 
 @Component({
   selector: 'app-user',
@@ -31,6 +32,7 @@ import { ButtonComponent } from '~/app/components/button/button.component';
     SelectComponent,
     InputComponent,
     ButtonComponent,
+    UserLoadingComponent,
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
